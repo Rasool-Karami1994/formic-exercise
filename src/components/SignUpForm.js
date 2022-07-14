@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 //step1
 const initialValues = {
   name: "",
@@ -34,17 +35,8 @@ const validationSchema = Yup.object({
   passwordConfirmation: Yup.string()
     .required("Renter your Password!")
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
-  Gender: Yup.string().required("grnder is required"),
+  Gender: Yup.string().required("Gender is required"),
 });
-
-const savedData = {
-  name: "Rasool",
-  email: "rasoolkarami2304@gmail.com",
-  password: "Rasool@2304",
-  phoneNumber: "09189975964",
-  passwordConfirmation: "Rasool@2304",
-  Gender: "0",
-};
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState(null);
@@ -56,6 +48,13 @@ const SignUpForm = () => {
     validateOnMount: true,
     enableReinitialize: true,
   });
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users/1")
+      .then((res) => setFormData(res.data))
+      .catch((err) => console.log(err));
+    console.log(formData);
+  }, []);
 
   return (
     <div>
@@ -147,6 +146,9 @@ const SignUpForm = () => {
           ></input>
           <label htmlFor="1">Female</label>
         </div>
+        {formik.errors.Gender && formik.touched.Gender && (
+          <p className="error">{formik.errors.Gender}</p>
+        )}
 
         <button
           type="submit"
@@ -154,12 +156,6 @@ const SignUpForm = () => {
           className={!formik.isValid ? "disabeled-btn" : ""}
         >
           Submit
-        </button>
-        <button
-          title="It is a exercise for loading user data when he enter it before!"
-          onClick={() => setFormData(savedData)}
-        >
-          load saved data
         </button>
       </form>
     </div>
