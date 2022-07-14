@@ -22,4 +22,11 @@ input {
 }
 button {
   padding: 10px 15px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+.error {
+  margin-top: 10px;
+  color: rgb(243, 83, 83);
 }
