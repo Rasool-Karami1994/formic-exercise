@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 //step1
@@ -37,12 +37,24 @@ const validationSchema = Yup.object({
   Gender: Yup.string().required("grnder is required"),
 });
 
+const savedData = {
+  name: "Rasool",
+  email: "rasoolkarami2304@gmail.com",
+  password: "Rasool@2304",
+  phoneNumber: "09189975964",
+  passwordConfirmation: "Rasool@2304",
+  Gender: "0",
+};
+
 const SignUpForm = () => {
+  const [formData, setFormData] = useState(null);
+
   const formik = useFormik({
-    initialValues,
+    initialValues: formData || initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
+    enableReinitialize: true,
   });
 
   return (
@@ -142,6 +154,12 @@ const SignUpForm = () => {
           className={!formik.isValid ? "disabeled-btn" : ""}
         >
           Submit
+        </button>
+        <button
+          title="It is a exercise for loading user data when he enter it before!"
+          onClick={() => setFormData(savedData)}
+        >
+          load saved data
         </button>
       </form>
     </div>
