@@ -3,12 +3,26 @@
   padding-top: 30px;
   justify-content: center;
 }
+form {
+  padding: 10px;
+}
 label {
   display: flex;
   margin-bottom: 5px;
   font-weight: 800;
+  padding: 10px;
 }
-input {
+
+input + label {
+  font-weight: bold;
+  display: inline-flex;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="phoneNumber"] {
   width: 400px;
   padding: 6px 12px;
   display: block;
@@ -29,4 +43,8 @@ button {
 .error {
   margin-top: 10px;
   color: rgb(243, 83, 83);
+}
+.disabeled-btn {
+  cursor: not-allowed;
+  opacity: 0.8;
 }
