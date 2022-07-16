@@ -122,7 +122,7 @@ const SignUpForm = () => {
             disabled={!formik.isValid}
             className={!formik.isValid ? "disabeled-btn" : ""}
           >
-            Create an account
+            Create An Account
           </button>
         </form>
       )}
