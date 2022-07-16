@@ -5,6 +5,10 @@
 }
 form {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 label {
   display: flex;
@@ -31,6 +35,17 @@ input[type="phoneNumber"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.form-control select {
+  width: 400px;
+  padding: 6px 12px;
+  display: block;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .form-control {
   margin-bottom: 20px;
 }
@@ -49,4 +64,15 @@ button {
 .disabeled-btn {
   cursor: not-allowed;
   opacity: 0.8;
+}
+.mess-box {
+  background-color: rgb(79, 245, 126);
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  font-size: larger;
 }
