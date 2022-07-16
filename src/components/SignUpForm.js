@@ -9,7 +9,7 @@ const initialValues = {
   password: "",
   phoneNumber: "",
   passwordConfirmation: "",
-  Gender: "",
+  gender: "",
 };
 //step2
 const onSubmit = (values) => console.log(values);
@@ -50,10 +50,11 @@ const SignUpForm = () => {
   });
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users/1")
-      .then((res) => setFormData(res.data))
+      .get(
+        "https://my-json-server.typicode.com/Rasool-Karami1994/form-server-api/users"
+      )
+      .then((res) => setFormData(res.data[0]))
       .catch((err) => console.log(err));
-    console.log(formData);
   }, []);
 
   return (
@@ -129,25 +130,25 @@ const SignUpForm = () => {
           <input
             type="radio"
             id="0"
-            name="Gender"
+            name="gender"
             value="0"
             onChange={formik.handleChange}
-            checked={formik.values.Gender === "0"}
+            checked={formik.values.gender === "0"}
           ></input>
           <label htmlFor="0">Male</label>
 
           <input
             type="radio"
             id="1"
-            name="Gender"
+            name="gender"
             value="1"
             onChange={formik.handleChange}
-            checked={formik.values.Gender === "1"}
+            checked={formik.values.gender === "1"}
           ></input>
           <label htmlFor="1">Female</label>
         </div>
-        {formik.errors.Gender && formik.touched.Gender && (
-          <p className="error">{formik.errors.Gender}</p>
+        {formik.errors.gender && formik.touched.gender && (
+          <p className="error">{formik.errors.gender}</p>
         )}
 
         <button
