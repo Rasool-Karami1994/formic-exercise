@@ -7,6 +7,7 @@ import RadioButton from "./common/RadioButton";
 import CheckBox from "./common/CheckBox";
 import SelectComponent from "./common/SelectComponent";
 import BooleanCheckBox from "./common/BooleanCheckBox";
+import signUpImg from "./signUp.jpg";
 //step1
 const initialValues = {
   id: 2,
@@ -98,33 +99,39 @@ const SignUpForm = () => {
       {isShow ? (
         <div className="mess-box">Regetered successfully!</div>
       ) : (
-        <form onSubmit={formik.handleSubmit}>
-          <Input label="Name" name="name" formik={formik} />
-          <Input label="Email" name="email" formik={formik} />
-          <Input label="Phone Number" name="phoneNumber" formik={formik} />
-          <Input label="PassWord" name="password" formik={formik} />
-          <Input
-            label="Password Confirmation"
-            name="passwordConfirmation"
-            formik={formik}
-          />
+        <div className="page-container">
+          <form onSubmit={formik.handleSubmit}>
+            <h2>Sign Up</h2>
+            <Input label="Name" name="name" formik={formik} />
+            <Input label="Email" name="email" formik={formik} />
+            <Input label="Phone Number" name="phoneNumber" formik={formik} />
+            <Input label="Password" name="password" formik={formik} />
+            <Input
+              label="Password Confirmation"
+              name="passwordConfirmation"
+              formik={formik}
+            />
 
-          <RadioButton formik={formik} name="gender" />
-          <SelectComponent formik={formik} name="country" options={options} />
-          <CheckBox
-            formik={formik}
-            name="intrests"
-            checkBoxOptions={checkBoxOptions}
-          />
-          <BooleanCheckBox formik={formik} />
-          <button
-            type="submit"
-            disabled={!formik.isValid}
-            className={!formik.isValid ? "disabeled-btn" : ""}
-          >
-            Create An Account
-          </button>
-        </form>
+            <RadioButton formik={formik} name="gender" />
+            <SelectComponent formik={formik} name="country" options={options} />
+            <CheckBox
+              formik={formik}
+              name="intrests"
+              checkBoxOptions={checkBoxOptions}
+            />
+            <BooleanCheckBox formik={formik} />
+            <button
+              type="submit"
+              disabled={!formik.isValid}
+              className={!formik.isValid ? "disabeled-btn" : ""}
+            >
+              Create An Account
+            </button>
+          </form>
+          <div className="img-container">
+            <img src={signUpImg} alt="sign-up"></img>
+          </div>
+        </div>
       )}
     </div>
   );
