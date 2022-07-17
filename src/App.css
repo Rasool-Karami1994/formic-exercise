@@ -29,6 +29,85 @@
   justify-content: flex-end;
   align-items: center;
 }
+@media only screen and (max-width: 1200px) {
+  .App {
+    width: 1000px;
+  }
+  .img-container {
+    width: 40%;
+  }
+  form {
+    width: 35%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .App {
+    width: 90%;
+  }
+  .img-container {
+    display: none;
+  }
+  .page-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+  }
+  form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .App {
+    width: 1000px;
+  }
+  .img-container {
+    width: 40%;
+  }
+  form {
+    width: 35%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .App {
+    width: 90%;
+    margin: auto;
+  }
+  .img-container {
+    display: none;
+  }
+  .page-container {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+  }
+  form {
+    width: 80%;
+    margin: 0;
+  }
+
+  form .simple-input {
+    width: 180px;
+    padding: 10px 12px;
+    display: block;
+    background-color: #fafbff;
+    color: #444;
+    border: 1px solid #e6e7e8;
+    border-radius: 4px;
+  }
+
+  form .form-control select {
+    width: 180px;
+    padding: 6px 12px;
+    display: block;
+    background-color: #fafbff;
+    color: #444;
+    border: 1px solid #f1f2f4;
+    border-radius: 8px;
+  }
+}
 .img-container img {
   width: 100%;
   height: 100%;
@@ -65,10 +144,7 @@ input + label {
   margin-left: 5px;
   background-color: #fafbff;
 }
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="phoneNumber"] {
+.simple-input {
   width: 400px;
   padding: 10px 12px;
   display: block;
@@ -97,7 +173,6 @@ button {
   background-color: #5374c1;
   color: #fff;
   border-radius: 8px;
-  /* margin-right: 20px; */
   cursor: pointer;
   border: none;
   margin: 10px 0 20px 0;

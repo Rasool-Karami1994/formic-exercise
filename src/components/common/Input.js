@@ -3,6 +3,7 @@ const Input = ({ label, formik, name, type = "text" }) => {
     <div className="form-control">
       <label htmlFor={name}>{label}</label>
       <input
+        className="simple-input"
         id={name}
         type={type}
         onChange={formik.handleChange}
